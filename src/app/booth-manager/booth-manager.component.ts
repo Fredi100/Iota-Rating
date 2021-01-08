@@ -1,6 +1,7 @@
 import { DbService } from './../db.service';
 import { IotaService } from './../iota.service';
 import { Component, OnInit } from '@angular/core';
+var QRCode = require('qrcode');
 
 @Component({
   selector: 'app-booth-manager',
@@ -22,10 +23,18 @@ export class BoothManagerComponent implements OnInit {
     // generate address
     // save in db
 
+    var canvas = document.getElementById('canvas');
+
     const seed = this.iotaService.generateSeed();
     this.iotaService.generateAddress(seed)
       .then(address => {
         let status = "booth name: " + this.name + "seed: " + seed + "\naddress: " + address
+
+        QRCode.toCanvas(canvas, address, function (error) {
+          if (error) console.error(error);
+          console.log("Generated QR Code");
+        })
+
         console.log(status);
       })
       .catch(err => console.error(err));

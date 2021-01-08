@@ -47,8 +47,20 @@ export class IotaService {
     return result.join('');
   }
 
+  /*
+  The procedure to calculate an address checksum is as follows:
+  Start with an IOTA address (81 trytes).Address (trytes): FSAFM … NVDZC
+  Convert the address (81 trytes) to trits (= 81 x 3 = 243 trits)
+  Address (trits): 1,0,-1,1,0,-1 … -1,0,0,0,1,0
+  The address is hashed using the Keccak-384 hash algorithm.
+
+  Convert the address checksum (243 trits) to trytes (81 trytes): …PJFNYWVUGKPRTRV
+  Get the last 9 trytes: VUGKPRTRV
+  Append the last 9 trytes to the original address: FSAFM … NVDZCVUGKPRTRV
+  The address including checksum has a length of 81 + 9 = 90 trytes.
+  */
   generateAddress(seed: string): Promise<string> {
-    return this.iota.getNewAddress(seed, {index: 0, security: 2});
+    return this.iota.getNewAddress(seed, {index: 0, security: 2, checksum: true});
   }
 
   raiseStartingBalance(address: string, seed: string, value: number): boolean {
