@@ -1,11 +1,13 @@
-<h1>Booth-Manager</h1>
-
-<h2>create new booth</h2>
-
-<div>
-  <label>name:
-    <input [(ngModel)]="name" placeholder="new booth"/>
-  </label>
-</div>
-<button (click)="generateNewBooth()">Generate Booth!</button>
-<canvas id="canvas"></canvas>
+<mat-card>
+  <mat-card-title>Booth Manager</mat-card-title>
+  <mat-card-subtitle>Create new Booth</mat-card-subtitle>
+  <mat-card-content>
+    <mat-form-field>
+      <label>Booth Name</label>
+      <input [(ngModel)]="name" placeholder="Booth 1" required="true">
+      <button mat-stroked-button (click)="generateNewBooth()">Generate Booth!</button>
+    </mat-form-field>
+    <br>
+    <canvas id="canvas"></canvas>
+  </mat-card-content>
+</mat-card>
