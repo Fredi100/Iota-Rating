@@ -19,12 +19,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { BoothInfoComponent } from './booth-info/booth-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
-    BoothManagerComponent
+    BoothManagerComponent,
+    BoothInfoComponent
   ],
   imports: [
     BrowserModule,
