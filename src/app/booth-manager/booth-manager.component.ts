@@ -12,8 +12,7 @@ export class BoothManagerComponent implements OnInit {
 
   constructor(private iotaService: IotaService, private dbService: DbService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   name: string;
 

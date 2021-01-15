@@ -2,11 +2,17 @@
   <mat-card-title>Booth Manager</mat-card-title>
   <mat-card-subtitle>Create new Booth</mat-card-subtitle>
   <mat-card-content>
-    <mat-form-field>
-      <label>Booth Name</label>
-      <input [(ngModel)]="name" placeholder="Booth 1" required="true">
-      <button mat-stroked-button (click)="generateNewBooth()">Generate Booth!</button>
-    </mat-form-field>
+
+    <form #boothForm="ngForm">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="name" placeholder="Booth name" name="boothInput" required="true">
+        <mat-hint>Gib hier bitte den Booth name an du spast</mat-hint>
+      </mat-form-field>
+
+      <button type="submit" matButton mat-stroked-button (click)="generateNewBooth()" [disabled]="boothForm.form.invalid">Generate Booth!</button>
+
+    </form>
+
     <br>
     <canvas id="canvas"></canvas>
   </mat-card-content>
