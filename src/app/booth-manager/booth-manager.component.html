@@ -6,9 +6,9 @@
     <form #boothForm="ngForm">
       <mat-form-field>
         <input matInput type="text" [(ngModel)]="name" placeholder="Booth name" name="boothInput" required="true">
-        <mat-hint>Gib hier bitte den Booth name an du spast</mat-hint>
+        <mat-hint>Bitte Namen des Stands eintragen.</mat-hint>
       </mat-form-field>
-
+      
       <button type="submit" matButton mat-stroked-button (click)="generateNewBooth()" [disabled]="boothForm.form.invalid">Generate Booth!</button>
 
     </form>
