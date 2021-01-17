@@ -25,4 +25,8 @@ export class BoothService {
     localStorage.setItem('booths', JSON.stringify(this.booths));
     console.log(this.booths.toString());
   }
+
+  refreshRating(): void {
+    
+  } 
 }

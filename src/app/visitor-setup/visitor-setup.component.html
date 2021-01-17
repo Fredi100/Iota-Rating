@@ -1,0 +1,9 @@
+<form #visitorForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="address" placeholder="Visitor address" name="addressInput" required="true">
+      <mat-hint>Bitte Empfangsaddresse des Besuchers eingeben.</mat-hint>
+    </mat-form-field>
+    
+    <button type="submit" matButton mat-stroked-button (click)="raiseStartingBalance()" [disabled]="visitorForm.form.invalid">Raise balance!</button>
+
+  </form>

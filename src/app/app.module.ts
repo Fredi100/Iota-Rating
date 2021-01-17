@@ -20,13 +20,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BoothInfoComponent } from './booth-info/booth-info.component';
+import { AppRoutingModule } from './app-routing.module';
+import { VisitorSetupComponent } from './visitor-setup/visitor-setup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
     BoothManagerComponent,
-    BoothInfoComponent
+    BoothInfoComponent,
+    VisitorSetupComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { BoothInfoComponent } from './booth-info/booth-info.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

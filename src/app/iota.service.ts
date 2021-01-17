@@ -12,13 +12,18 @@ export class IotaService {
 
   iota: API;
 
+  seed: string;
+
   depth: number = 20;
   minimumWeightMagnitude: number = 5;
 
+  // TODO: get infos from environment file
   constructor() {
     this.iota = composeAPI({
       provider: 'http://tesserekt.net:14267'
     });
+
+    this.seed = "TIONONYQUNOZLXJEJZA9EFPT9YLTBMKVXGIXFQEFWGNSSMKEMMBTDSVMDBKW9MACKWUYQH9WUENLJGXQN";
    }
 
   ngOnInit(): void {
@@ -63,7 +68,7 @@ export class IotaService {
     return this.iota.getNewAddress(seed, {index: 0, security: 2, checksum: true});
   }
 
-  raiseStartingBalance(address: string, seed: string, value: number): boolean {
+  raiseStartingBalance(address: string, value: number): void {
 
     const message = "starting balance";
 
@@ -78,7 +83,7 @@ export class IotaService {
     ];
 
     this.iota
-      .prepareTransfers(seed, transfers)
+      .prepareTransfers(this.seed, transfers)
       .then(trytes => this.iota.sendTrytes(trytes, this.depth, this.minimumWeightMagnitude))
       .then(bundle => {
         const tailTransactionHash = bundle[0].hash;
@@ -91,10 +96,7 @@ export class IotaService {
       })
       .catch(err => {
         console.error(err);
-        return false;
       });
-
-      return true;
   }
 
 }

@@ -1,8 +1,12 @@
-<mat-tab-group>
-    <mat-tab label="Generate Booth">
-        <app-booth-manager></app-booth-manager>
-    </mat-tab>
-    <mat-tab label="Booth Overview">
-        <app-booth-info></app-booth-info>
-    </mat-tab>
-</mat-tab-group>
+<mat-toolbar>
+
+    <mat-toolbar-row>
+        <h1>Iota Rating</h1>
+        <div>
+            <a mat-button [routerLink]="'/booth-manager'">Booth Manager</a>
+            <a mat-button [routerLink]="'/booth-info'">Booth Info</a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
