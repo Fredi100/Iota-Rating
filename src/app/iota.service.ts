@@ -99,4 +99,9 @@ export class IotaService {
       });
   }
 
+  async checkBalanceForSeed(seed: string): Promise<number>{
+    var accountData = await this.iota.getAccountData(seed);
+    return accountData.balance;
+  }
+
 }

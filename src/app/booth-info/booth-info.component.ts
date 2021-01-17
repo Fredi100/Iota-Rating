@@ -34,6 +34,7 @@ export class BoothInfoComponent implements OnInit {
       var bootId = container.nativeElement.id;
       this.iotaService.generateAddress(this.booths[bootId].seed)
         .then(address => {
+          console.log("Address: " + address);
           var canvas = document.createElement("canvas");
           QRCode.toCanvas(canvas, address);
           container.nativeElement.appendChild(canvas);

@@ -11,7 +11,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
-import { DemoComponent } from './demo/demo.component';
 import { BoothManagerComponent } from './booth-manager/booth-manager.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -26,7 +25,6 @@ import { VisitorSetupComponent } from './visitor-setup/visitor-setup.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent,
     BoothManagerComponent,
     BoothInfoComponent,
     VisitorSetupComponent

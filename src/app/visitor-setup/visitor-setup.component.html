@@ -1,9 +1,17 @@
-<form #visitorForm="ngForm">
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="address" placeholder="Visitor address" name="addressInput" required="true">
-      <mat-hint>Bitte Empfangsaddresse des Besuchers eingeben.</mat-hint>
-    </mat-form-field>
-    
-    <button type="submit" matButton mat-stroked-button (click)="raiseStartingBalance()" [disabled]="visitorForm.form.invalid">Raise balance!</button>
-
-  </form>
+<mat-card>
+  <mat-card-title>Visitor Setup</mat-card-title>
+  <mat-card-subtitle>Manage the setup of new visitors</mat-card-subtitle>
+  <mat-card-content>
+    <form #visitorForm="ngForm">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="address" placeholder="Visitor address" name="addressInput"
+          required="true">
+        <mat-hint>Bitte Empfangsaddresse des Besuchers eingeben.</mat-hint>
+      </mat-form-field>
+  
+      <button type="submit" matButton mat-stroked-button (click)="raiseStartingBalance()"
+        [disabled]="visitorForm.form.invalid">Raise balance!</button>
+  
+    </form>
+  </mat-card-content>
+</mat-card>
