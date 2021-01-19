@@ -20,7 +20,7 @@ export class IotaService {
   // TODO: get infos from environment file
   constructor() {
     this.iota = composeAPI({
-      provider: 'http://tesserekt.net:14267'
+      provider: 'https://tesserekt.net:14267'
     });
 
     this.seed = "TIONONYQUNOZLXJEJZA9EFPT9YLTBMKVXGIXFQEFWGNSSMKEMMBTDSVMDBKW9MACKWUYQH9WUENLJGXQN";
