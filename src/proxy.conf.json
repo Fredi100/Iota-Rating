@@ -1,6 +1,6 @@
 {
     "*": {
-        "target": "http://tesserekt.net:14267",
+        "target": "https://tesserekt.net:14267",
         "secure": false,
         "logLevel": "debug"
     }
