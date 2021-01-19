@@ -12,6 +12,8 @@ export class VisitorSetupComponent implements OnInit {
   // iota per visitor
   value: number;
 
+  transactionHash: string;
+
   constructor(private iotaService: IotaService) {
     // how many iota a visitor is allowed to spend on ratings
     this.value = 1000;
@@ -21,7 +23,9 @@ export class VisitorSetupComponent implements OnInit {
   }
 
   raiseStartingBalance(): void {
-    this.iotaService.raiseStartingBalance(this.address, this.value);
+    this.iotaService.raiseStartingBalance(this.address, this.value)
+      .then(hash => this.transactionHash = hash)
+      .catch(error => console.error(error));
   }
 
 }

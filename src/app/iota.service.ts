@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { API, composeAPI } from '@iota/core';
+import { of } from 'rxjs';
 
 const Converter = require('@iota/converter');
 const Extract = require('@iota/extract-json')
@@ -68,7 +69,7 @@ export class IotaService {
     return this.iota.getNewAddress(seed, {index: 0, security: 2, checksum: true});
   }
 
-  raiseStartingBalance(address: string, value: number): void {
+  async raiseStartingBalance(address: string, value: number) {
 
     const message = "starting balance";
 
@@ -82,21 +83,9 @@ export class IotaService {
       }
     ];
 
-    this.iota
-      .prepareTransfers(this.seed, transfers)
-      .then(trytes => this.iota.sendTrytes(trytes, this.depth, this.minimumWeightMagnitude))
-      .then(bundle => {
-        const tailTransactionHash = bundle[0].hash;
-        console.log(tailTransactionHash);
-
-        return this.iota.getBundle(tailTransactionHash)
-          .then(bundle => {
-            console.log(JSON.parse(Extract.extractJson(bundle)));
-          })
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    const trytes = await this.iota.prepareTransfers(this.seed, transfers);
+    const bundle = await this.iota.sendTrytes(trytes, this.depth, this.minimumWeightMagnitude);
+    return bundle[0].hash;
   }
 
   async checkBalanceForSeed(seed: string): Promise<number>{
