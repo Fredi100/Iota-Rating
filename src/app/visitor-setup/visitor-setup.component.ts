@@ -17,6 +17,7 @@ export class VisitorSetupComponent implements OnInit {
   constructor(private iotaService: IotaService) {
     // how many iota a visitor is allowed to spend on ratings
     this.value = 1000;
+    this.transactionHash = '';
   }
 
   ngOnInit(): void {

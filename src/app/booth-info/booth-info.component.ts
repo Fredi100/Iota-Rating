@@ -3,7 +3,6 @@ import { Booth } from '../booth';
 import { BoothService } from '../booth.service';
 import { IotaService } from '../iota.service';
 import QRCode from 'qrcode';
-import { MatCardContent } from '@angular/material/card';
 
 @Component({
   selector: 'app-booth-info',
@@ -12,12 +11,17 @@ import { MatCardContent } from '@angular/material/card';
 })
 export class BoothInfoComponent implements OnInit {
 
-  booths: Booth[] = [];
+  booths: Booth[];
+  addresses: string[];
 
   @ViewChildren('elements')
   canvases: QueryList<ElementRef>;
 
-  constructor(private boothService: BoothService, private iotaService: IotaService) { }
+  constructor(private boothService: BoothService,
+              private iotaService: IotaService) {
+    this.booths = [];
+    this.addresses = [];
+  }
 
   ngOnInit(): void {
     this.getBooths();

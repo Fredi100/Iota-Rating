@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-title>Booth Info</mat-card-title>
     <mat-card-subtitle>View all booths and their rating</mat-card-subtitle>
+
     <mat-card-content>
         <mat-card *ngFor="let booth of booths; let i = index">
             <mat-card-title>{{booth.name}} - {{booth.rating}}</mat-card-title>

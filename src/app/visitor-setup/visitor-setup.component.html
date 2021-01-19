@@ -6,15 +6,16 @@
       <mat-form-field>
         <input matInput type="text" [(ngModel)]="address" placeholder="Visitor address" name="addressInput"
           required="true">
-        <mat-hint>Bitte Empfangsaddresse des Besuchers eingeben.</mat-hint>
+        <mat-hint>Enter the address of visitor's wallet.</mat-hint>
       </mat-form-field>
-  
+      
+      <br>
       <button type="submit" matButton mat-stroked-button (click)="raiseStartingBalance()"
-        [disabled]="visitorForm.form.invalid">Raise balance!</button>
+        [disabled]="visitorForm.form.invalid" style="margin-top: 10px">Raise Balance!</button>
   
     </form>
     <br>
-    <label for="transactionHash">Transaction Hash:</label>
+    <label for="transactionHash" [hidden]="transactionHash.length==0">Transaction Hash:</label>
     <textarea [(ngModel)]="transactionHash" matInput name="transactionHash" readonly></textarea>
   </mat-card-content>
 </mat-card>

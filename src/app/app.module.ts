@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { BoothManagerComponent } from './booth-manager/booth-manager.component';
@@ -21,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { BoothInfoComponent } from './booth-info/booth-info.component';
 import { AppRoutingModule } from './app-routing.module';
 import { VisitorSetupComponent } from './visitor-setup/visitor-setup.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { VisitorSetupComponent } from './visitor-setup/visitor-setup.component';
     MatIconModule,
     MatListModule,
     MatInputModule,
-    AppRoutingModule
+    MatProgressBarModule,
+    AppRoutingModule,
+    LoadingBarRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
