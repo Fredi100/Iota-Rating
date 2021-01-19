@@ -13,7 +13,8 @@
         [disabled]="visitorForm.form.invalid">Raise balance!</button>
   
     </form>
-
-    <textarea [(ngModel)]="transactionHash" matInput></textarea>
+    <br>
+    <label for="transactionHash">Transaction Hash:</label>
+    <textarea [(ngModel)]="transactionHash" matInput name="transactionHash"></textarea>
   </mat-card-content>
 </mat-card>
